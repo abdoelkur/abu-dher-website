@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>متجر حجاج أبو ظهير | للزي الليبي الأصيل</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+    
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Cairo', sans-serif;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+/* نافبار */
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+#navbar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #e4b95b;
+    object-fit: cover;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+}
+#navbar ul {
+    display: flex;
+    list-style: none;
+}
+#navbar ul li a {
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: 0.5s;
+}
+#navbar ul li a:hover {
+    color: #e4b95b;
+}
+/* الهيدر */
+header {
+    height: 100vh;
+    background: url('a.jpg') center top/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+header::before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6); 
+}
+header .content {
+    position: relative;
+    color: #fff;
+    z-index: 10;
+    max-width: 800px;
+    padding: 0 20px;
+}
+header .content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
+.primary-text {
+    color: #e4b95b;
+    font-weight: 700;
+}
+header .content p {
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    color: #eee;
+}
+.btn {
+    display: inline-block;
+    padding: 12px 45px;
+    border-radius: 50px; 
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.4s;
+}
+.btn-primary {
+    color: #fff;
+    border: 2px solid #e4b95b;
+}
+.btn-primary:hover {
+    background: #e4b95b;
+    color: #000;
+}
+/* عن المتجر */
+.about-section {
+    padding: 100px 10%;
+       background: linear-gradient(to right, #111, #1b1b1b);
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.about-text {
+    flex: 1;
+}
+.about-text h2 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    position: relative;
+}
+.about-text h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #e4b95b;
+    margin-top: 10px;
+}
+.about-text p {
+    font-size: 1.1rem;
+    color: #d6d2d2;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+.about-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+    width: 300px;
+}
+.about-images img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+/* العروض */
+#offers {
+    padding: 80px 5%;
+        background: linear-gradient(to right, #111, #1b1b1b);    
+    padding-top: 150px;
+}
+.offer-box h3 {
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color:#ffffff;
+}
+.section-subtitle {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 40px;
+}
+.offers-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 عروض فقط */
+    gap: 30px;
+}
+.offer-box {
+    background: #1c1c1c;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(163, 58, 58, 0.1);
+    text-align: center;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+.offer-box:hover {
+    transform: translateY(-5px);
+}
+.offer-box img.main-img {
+    width: 100%;
+    height: 250px; /* تكبير الصورة الأساسية */
+    object-fit: cover;
+    border-radius: 10px;
+}
+.extra-imgs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+.extra-imgs img {
+    width: 48%; /* الصور الإضافية أكبر */
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.offer-box h3 {
+    margin: 15px 0 5px;
+    font-size: 20px;
+}
+.offer-box p {
+    color: #d1cbcb;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.offer-box .price {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+    color: #b8860b;
+}
+/* اتصل بنا */
+.contact-section {
+    padding: 100px 8%;
+    background: linear-gradient(to right, #111, #222);
+    color: #fff;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.contact-info h2 {
+    font-size: 2.6rem;
+    margin-bottom: 15px;
+    color: #e4b95b;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    color: #ddd;
+    line-height: 1.8;
+}
+
+.contact-info ul {
+    list-style: none;
+}
+
+.contact-info ul li {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+
+.contact-form {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #e4b95b;
+}
+
+.contact-form textarea {
+    resize: none;
+    height: 120px;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 15px;
+    background: #e4b95b;
+    color: #000;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.contact-form button:hover {
+    background: #cfa63a;
+}
+.btn:hover {
+    background: #e4b95b;
+    color: #000;
+}
+
+/* موبايل */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .contact-form {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .offers-content {
+        grid-template-columns: repeat(2, 1fr); /* صفين على التابلت */
+    }
+}
+@media (max-width: 768px) {
+    #navbar { flex-direction: column; }
+    .about-section { flex-direction: column; text-align: center; }
+    .about-text h2::after { margin: 10px auto; }
+    header .content h1 { font-size: 2.5rem; }
+    .offers-content {
+        grid-template-columns: 1fr; /* عمود واحد على الموبايل */
+    }
+}
+.btn{
+    border: 2px solid #cfa63a;
+     color: #ffffff ;
+     margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<header id="home">
+    <nav id="navbar">
+        <ul>
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#about">عن المتجر</a></li>
+            <li><a href="#offers">منتجاتنا</a></li>
+            <li><a href="#contact">اتصل بنا</a></li>
+        </ul>
+        <img src="logo.jpg" alt="شعار حجاج أبو ظهير">
+    </nav>
+
+    <div class="content">
+        <h1>حجاج أبو ظهير <span class="primary-text">أصالةٌ تتجدد</span></h1>
+        <p>نصنع لك هويتك الليبية بأرقى الأقمشة وأدق التطريزات اليدوية.</p>
+        <a href="#about" class="btn btn-primary">اكتشف قصتنا</a>
+    </div>
+</header>
+
+<section class="about-section" id="about">
+    <div class="about-text">
+        <h2>قصة محل حجاج أبو ظهير</h2>
+        <p>من قلب ليبيا، انطلقنا لنحافظ على هوية الرجل الليبي من خلال الزي التقليدي. نحن في متجر حجاج أبو ظهير لا نبيع مجرد ملابس، بل نقدم إرثاً يمتد لسنوات من الخبرة في اختيار أجود أنواع الأقمشة ودقة اليد التي تخيط "الفرملة" و"الزبون".</p>
+        <p>رؤيتنا هي الدمج بين فخامة الماضي وتصاميم الحاضر، لنضمن لعملائنا إطلالة مهيبة في كافة المناسبات الوطنية والاجتماعية.</p>
+        <a href="#offers" class="btn" >مشاهدة المعرض</a>
+    </div>
+
+    <div class="about-images">
+        <img src="z.bloue.jpg" alt="">
+        <img src="زبون نص يد  رجالي  رصاصي.jpg" alt="">
+        <img src="زبون يد تامه  رجالس اسود.jpg" alt="">
+        <img src="زبون نص يد رجالي.jpg" alt="">
+    </div>
+</section>
+
+<section id="offers">
+    <h2 class="section-title">عروض حجاج أبو ظهير</h2>
+    <p class="section-subtitle">اللبس الليبي التقليدي</p>
+
+    <div class="offers-content">
+
+        <!-- مثال عرض -->
+        <div class="offer-box">
+            <img class="main-img" src="a1.jpg" alt="">
+            <div class="extra-imgs">
+                <img src="a2.jpg" alt="">
+                <img src="a3.jpg" alt="">
+            </div>
+            <h3>زبون نصف يدوي رجالي</h3>
+             <p>نوع الفرملة: فرملة عادية</p>
+            <p>اللون: قهوي</p>
+            <p>قماش ايطالي</p>
+            <span class="price">1100 د.ل</span>
+        </div>
+
+        <div class="offer-box">
+            <img class="main-img" src="b1.jpg" alt="">
+            <div class="extra-imgs">
+                <img src="b2.jpg" alt="">
+                <img src="b3.jpg" alt="">
+            </div>
+            <h3>زبون يدوي كامل رجالي</h3>
+            <p>نوع الفرملة: فرملة بدعية </p>
+            <p>اللون: رصاصي</p>
+            <p>قماش انجليزي</p>
+            <span class="price">2400 د.ل</span>
+        </div>
+
+        <div class="offer-box">
+            <img class="main-img" src="c1.jpg" alt="">
+            <div class="extra-imgs">
+                <img src="c2.jpg" alt="">
+                <img src="c3.jpg" alt="">
+            </div>
+            <h3>زبون نصف يدوي  رجالي</h3>
+             <p>نوع الفرملة: فرملة بدعية </p>
+            <p>اللون : عنابي</p>
+            <p>قماش انجليزي</p>
+            <span class="price">1300 د.ل</span>
+        </div>
+
+        <!-- يمكنك إضافة المزيد بنفس النمط -->
+<!-- العرض الرابع -->
+<div class="offer-box">
+    <img class="main-img" src="d1.jpg" alt="">
+    <div class="extra-imgs">
+        <img src="d2.jpg" alt="">
+        <img src="d3.jpg" alt="">
+    </div>
+       <h3>زبون نصف يدوي  رجالي</h3>
+             <p>نوع الفرملة: فرملة عادية</p>
+            <p>اللون : ازرق سحابي</p>
+            <p>قماش ايطالي</p>
+    
+    <span class="price">1100 د.ل</span>
+</div>
+
+<!-- العرض الخامس -->
+<div class="offer-box">
+    <img class="main-img" src="e1.jpg" alt="">
+    <div class="extra-imgs">
+        <img src="e2.jpg" alt="">
+        <img src="e3.jpg" alt="">
+    </div>
+      <h3>زبون يدوي كامل رجالي</h3>
+             <p>نوع الفرملة: فرملة عادية</p>
+            <p>اللون : رمادي</p>
+            <p>قماش ايطالي</p>
+    <span class="price">2200 د.ل</span>
+</div>
+
+<!-- العرض السادس -->
+<div class="offer-box">
+    <img class="main-img" src="f1.jpg" alt="">
+    <div class="extra-imgs">
+        <img src="f2.jpg" alt="">
+       <img src="f3.jpg" alt="">
+    </div>
+       <h3>زبون سكروته نصف يدوي رجالي</h3>
+             <p>نوع الفرملة: فرملة عادية</p>
+            <p>اللون : سكري</p>
+            <p>قماش ياباني</p>
+    <span class="price">1500 د.ل</span>
+</div>
+
+
+<div class="offer-box">
+    <img class="main-img" src="g.jpg" alt="">
+    <div class="extra-imgs">
+        <img src="g2.jpg" alt="">
+       <img src="g3.jpg" alt="">
+    </div>
+       <h3>زبون يدوي كامل رجالي</h3>
+             <p>نوع الفرملة: فرملة بدعية </p>
+            <p>اللون : اسود</p>
+            <p>قماش ايطالي</p>
+    <span class="price">2400 د.ل</span>
+</div>
+
+
+
+<div class="offer-box">
+    <img class="main-img" src="h1.jpg" alt="">
+    <div class="extra-imgs">
+        <img src="h2.jpg" alt="">
+       <img src="h3.jpg" alt="">
+    </div>
+      <h3>زبون نصف يدوي  رجالي</h3>
+             <p>نوع الفرملة: فرملة بدعية </p>
+            <p>اللون : ازرق كحلي </p>
+            <p>قماش انجليزي</p>
+    <span class="price">1300د.ل</span>
+</div>
+
+
+
+
+<div class="offer-box">
+    <img class="main-img" src="j1.jpg" alt="">
+    <div class="extra-imgs">
+        <img src="j2.jpg" alt="">
+       <img src="j3.jpg" alt="">
+    </div>
+      <h3>زبون نصف يدوي  رجالي</h3>
+             <p>نوع الفرملة: فرملة عادية</p>
+            <p>اللون : عنابي</p>
+            <p>قماش انجليزي</p>
+    <span class="price">1100 د.ل</span>
+</div>
+    </div>
+</section>
+<section id="contact" class="contact-section">
+    <div class="contact-container">
+        
+        <div class="contact-info">
+            <h2>اتصل بنا</h2>
+            <p>
+                يسعدنا تواصلك معنا لأي استفسار أو طلب خاص.  
+                متجر حجاج أبو ظهير في خدمتك دائمًا.
+            </p>
+
+            <ul>
+                <li>📍 العنوان: طرابلس – ليبيا</li>
+                <li>📞 الهاتف: 0912345678</li>
+                <li>📧 البريد: info@hajjaj.com</li>
+                <li>🕒 أوقات العمل: يوميًا من 9 صباحًا إلى 9 مساءً</li>
+            </ul>
+        </div>
+
+        <form class="contact-form">
+            <input type="text" placeholder="الاسم الكامل" required>
+            <input type="tel" placeholder="رقم الهاتف" required>
+            <textarea placeholder="اكتب رسالتك هنا..." required></textarea>
+            <button type="submit">إرسال الرسالة</button>
+        </form>
+
+    </div>
+</section>
+
+
+</body>
+</html>
